@@ -1,6 +1,8 @@
 import time
 import pandas as pd
 import numpy as np
+from tabulate import tabulate
+
 #load source data
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -19,10 +21,11 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
     while True:
+        valid_cities = CITY_DATA.keys()
         try:
             city = input("Enter the city (possible options: chicago, new york city, washington) ").lower()
 
-            if city in ['chicago', 'new york city', 'washington']:
+            if city in valid_cities:
                 break
             else:
                 print("\nThat\'s not a valid city!\n")
